@@ -57,7 +57,8 @@ export const DataProvider: React.FC<IProps> = ({ children }: IProps) => {
         return employee.id
       })
 
-      const maxId = Math.max(...ids)
+      const maxId = ids.length > 0 ? Math.max(...ids) : 0
+
       setAppState({
         ...appState,
         employees: [...appState.employees, { ...employee, id: maxId + 1 }],
